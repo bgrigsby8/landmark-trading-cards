@@ -13,7 +13,7 @@ struct TradingCardView: View {
     var body: some View {
         VStack {
             ZStack {
-                Image(landmark.imageName)
+                Image(landmark.collapsedImageName)
                     .resizable()
                     .aspectRatio(contentMode: .fit)
                     .frame(width: 200, height: 230)

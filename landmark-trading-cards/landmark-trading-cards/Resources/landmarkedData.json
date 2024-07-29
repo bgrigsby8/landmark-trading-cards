@@ -1,49 +1,61 @@
 [
     {
+        "id": 1,
         "name": "Empire State Building",
         "location": "New York",
         "unlocked": false,
-        "imageName": "empire_state_building_collapsed",
+        "collapsedImageName": "empire_state_building_collapsed",
+        "expandedImageName": "empire_state_building_expanded",
         "description": "This is the description",
         "rarity": "common"
     },
     {
+        "id": 2,
         "name": "One World Trade Center",
         "location": "New York",
         "unlocked": false,
-        "imageName": "one_world_trade_center",
+        "collapsedImageName": "one_world_trade_center",
+        "expandedImageName": "empire_state_building_expanded",
         "description": "This is the description",
         "rarity": "common"
     },
     {
+        "id": 3,
         "name": "Radio City Music Hall",
         "location": "New York",
         "unlocked": false,
-        "imageName": "radio_city_music_hall",
+        "collapsedImageName": "radio_city_music_hall",
+        "expandedImageName": "empire_state_building_expanded",
         "description": "This is the description",
         "rarity": "common"
     },
     {
+        "id": 4,
         "name": "Statue of Liberty",
         "location": "New York",
         "unlocked": false,
-        "imageName": "statue_of_liberty",
+        "collapsedImageName": "statue_of_liberty",
+        "expandedImageName": "empire_state_building_expanded",
         "description": "This is the description",
         "rarity": "common"
     },
     {
+        "id": 5,
         "name": "Guggenheim Museum",
         "location": "New York",
         "unlocked": false,
-        "imageName": "guggenheim_museum",
+        "collapsedImageName": "guggenheim_museum",
+        "expandedImageName": "empire_state_building_expanded",
         "description": "This is the description",
         "rarity": "common"
     },
     {
+        "id": 6,
         "name": "Manhattan Bridge (Dumbo)",
         "location": "New York",
         "unlocked": false,
-        "imageName": "manhattan_bridge_dumbo",
+        "collapsedImageName": "manhattan_bridge_dumbo",
+        "expandedImageName": "empire_state_building_expanded",
         "description": "This is the description",
         "rarity": "common"
     }

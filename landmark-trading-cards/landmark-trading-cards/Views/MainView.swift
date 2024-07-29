@@ -8,22 +8,41 @@
 import SwiftUI
 
 struct MainView: View {
+    @State private var selectedLandmarkId: Int?
+    @State private var isExpandedViewPresented = false
     let landmark: Landmark
     let columns = [
         GridItem(.adaptive(minimum: 150))
     ]
-    
+
     var body: some View {
-        NavigationStack {
-            ScrollView(.vertical) {
-                LazyVGrid(columns: columns, content: {
-                    ForEach(landmarks, id: \.self) { landmark in
-                        TradingCardView(landmark: landmark)
-                    }
+        ZStack {
+            NavigationStack {
+                ScrollView(.vertical) {
+                    LazyVGrid(columns: columns, content: {
+                        ForEach(landmarks) { landmark in
+                            Button(action: {
+                                withAnimation {
+                                    selectedLandmarkId = landmark.id
+                                    isExpandedViewPresented = true
+                                }
+                            }) {
+                                TradingCardView(landmark: landmark)
+                            }
+                        }
+                    })
                     .padding()
-                })
+                }
+                .navigationTitle("New York")
             }
-            .navigationTitle("New York")
+            if isExpandedViewPresented,
+               let selectedLandmarkId = selectedLandmarkId,
+               let selectedLandmark = landmarks.first(where: { $0.id == selectedLandmarkId }) {
+                ExpandedLandmarkView(landmark: selectedLandmark)
+                    .onTapGesture {
+                        isExpandedViewPresented = false
+                    }
+            }
         }
     }
 }
