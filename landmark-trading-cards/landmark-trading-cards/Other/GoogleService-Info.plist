@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>API_KEY</key>
+	<string>AIzaSyA9MIMvl2l5BW1W2S9-2CIhZ-7CApKmkkk</string>
+	<key>GCM_SENDER_ID</key>
+	<string>216449967163</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.landmark-trading-cards</string>
+	<key>PROJECT_ID</key>
+	<string>landmark-trading-cards</string>
+	<key>STORAGE_BUCKET</key>
+	<string>landmark-trading-cards.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:216449967163:ios:a7a0b78f13141a5ea8681e</string>
+</dict>
+</plist>

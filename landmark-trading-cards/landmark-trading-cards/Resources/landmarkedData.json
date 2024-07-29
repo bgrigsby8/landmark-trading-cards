@@ -1,0 +1,50 @@
+[
+    {
+        "name": "Empire State Building",
+        "location": "New York",
+        "unlocked": false,
+        "imageName": "empire_state_building_collapsed",
+        "description": "This is the description",
+        "rarity": "common"
+    },
+    {
+        "name": "One World Trade Center",
+        "location": "New York",
+        "unlocked": false,
+        "imageName": "one_world_trade_center",
+        "description": "This is the description",
+        "rarity": "common"
+    },
+    {
+        "name": "Radio City Music Hall",
+        "location": "New York",
+        "unlocked": false,
+        "imageName": "radio_city_music_hall",
+        "description": "This is the description",
+        "rarity": "common"
+    },
+    {
+        "name": "Statue of Liberty",
+        "location": "New York",
+        "unlocked": false,
+        "imageName": "statue_of_liberty",
+        "description": "This is the description",
+        "rarity": "common"
+    },
+    {
+        "name": "Guggenheim Museum",
+        "location": "New York",
+        "unlocked": false,
+        "imageName": "guggenheim_museum",
+        "description": "This is the description",
+        "rarity": "common"
+    },
+    {
+        "name": "Manhattan Bridge (Dumbo)",
+        "location": "New York",
+        "unlocked": false,
+        "imageName": "manhattan_bridge_dumbo",
+        "description": "This is the description",
+        "rarity": "common"
+    }
+]

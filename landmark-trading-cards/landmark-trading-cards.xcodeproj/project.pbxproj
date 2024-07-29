@@ -8,12 +8,24 @@
 
 /* Begin PBXBuildFile section */
 		808C12C42BFAC4DE00452B9B /* landmark_trading_cardsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 808C12C32BFAC4DE00452B9B /* landmark_trading_cardsApp.swift */; };
-		808C12C62BFAC4DE00452B9B /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 808C12C52BFAC4DE00452B9B /* ContentView.swift */; };
+		808C12C62BFAC4DE00452B9B /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 808C12C52BFAC4DE00452B9B /* MainView.swift */; };
 		808C12C82BFAC4DF00452B9B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 808C12C72BFAC4DF00452B9B /* Assets.xcassets */; };
 		808C12CB2BFAC4DF00452B9B /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 808C12CA2BFAC4DF00452B9B /* Preview Assets.xcassets */; };
 		808C12D52BFAC4DF00452B9B /* landmark_trading_cardsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 808C12D42BFAC4DF00452B9B /* landmark_trading_cardsTests.swift */; };
 		808C12DF2BFAC4DF00452B9B /* landmark_trading_cardsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 808C12DE2BFAC4DF00452B9B /* landmark_trading_cardsUITests.swift */; };
 		808C12E12BFAC4DF00452B9B /* landmark_trading_cardsUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 808C12E02BFAC4DF00452B9B /* landmark_trading_cardsUITestsLaunchTests.swift */; };
+		80A47DD02BFAE56C001FFFEE /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 80A47DCF2BFAE56C001FFFEE /* FirebaseAuth */; };
+		80A47DD22BFAE56C001FFFEE /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 80A47DD12BFAE56C001FFFEE /* FirebaseFirestore */; };
+		80A47DD42BFAE56D001FFFEE /* FirebaseFirestoreSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 80A47DD32BFAE56D001FFFEE /* FirebaseFirestoreSwift */; };
+		80A47DD62BFAE595001FFFEE /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 80A47DD52BFAE595001FFFEE /* GoogleService-Info.plist */; };
+		80A47DDC2BFAED7E001FFFEE /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80A47DDB2BFAED7E001FFFEE /* ProfileView.swift */; };
+		80A47DDE2BFAEEBB001FFFEE /* ProfileViewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80A47DDD2BFAEEBB001FFFEE /* ProfileViewViewModel.swift */; };
+		80A47DE22BFAF136001FFFEE /* LoginViewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80A47DE12BFAF136001FFFEE /* LoginViewViewModel.swift */; };
+		80A47DE42BFAF1B9001FFFEE /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80A47DE32BFAF1B9001FFFEE /* LoginView.swift */; };
+		80F009522BFCF4AD00A3E12F /* TradingCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80F009512BFCF4AD00A3E12F /* TradingCardView.swift */; };
+		80F009562BFD0E6300A3E12F /* landmarkedData.json in Resources */ = {isa = PBXBuildFile; fileRef = 80F009552BFD0E6300A3E12F /* landmarkedData.json */; };
+		80F009582BFD121300A3E12F /* ModelData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80F009572BFD121300A3E12F /* ModelData.swift */; };
+		80F0095A2BFD127500A3E12F /* Landmark.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80F009592BFD127500A3E12F /* Landmark.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,7 +48,7 @@
 /* Begin PBXFileReference section */
 		808C12C02BFAC4DE00452B9B /* landmark-trading-cards.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "landmark-trading-cards.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		808C12C32BFAC4DE00452B9B /* landmark_trading_cardsApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = landmark_trading_cardsApp.swift; sourceTree = "<group>"; };
-		808C12C52BFAC4DE00452B9B /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		808C12C52BFAC4DE00452B9B /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		808C12C72BFAC4DF00452B9B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		808C12CA2BFAC4DF00452B9B /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		808C12D02BFAC4DF00452B9B /* landmark-trading-cardsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "landmark-trading-cardsTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -44,6 +56,15 @@
 		808C12DA2BFAC4DF00452B9B /* landmark-trading-cardsUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "landmark-trading-cardsUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		808C12DE2BFAC4DF00452B9B /* landmark_trading_cardsUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = landmark_trading_cardsUITests.swift; sourceTree = "<group>"; };
 		808C12E02BFAC4DF00452B9B /* landmark_trading_cardsUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = landmark_trading_cardsUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		80A47DD52BFAE595001FFFEE /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		80A47DDB2BFAED7E001FFFEE /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
+		80A47DDD2BFAEEBB001FFFEE /* ProfileViewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewViewModel.swift; sourceTree = "<group>"; };
+		80A47DE12BFAF136001FFFEE /* LoginViewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewViewModel.swift; sourceTree = "<group>"; };
+		80A47DE32BFAF1B9001FFFEE /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		80F009512BFCF4AD00A3E12F /* TradingCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TradingCardView.swift; sourceTree = "<group>"; };
+		80F009552BFD0E6300A3E12F /* landmarkedData.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = landmarkedData.json; sourceTree = "<group>"; };
+		80F009572BFD121300A3E12F /* ModelData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelData.swift; sourceTree = "<group>"; };
+		80F009592BFD127500A3E12F /* Landmark.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Landmark.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -51,6 +72,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				80A47DD02BFAE56C001FFFEE /* FirebaseAuth in Frameworks */,
+				80A47DD22BFAE56C001FFFEE /* FirebaseFirestore in Frameworks */,
+				80A47DD42BFAE56D001FFFEE /* FirebaseFirestoreSwift in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -94,9 +118,11 @@
 		808C12C22BFAC4DE00452B9B /* landmark-trading-cards */ = {
 			isa = PBXGroup;
 			children = (
-				808C12C32BFAC4DE00452B9B /* landmark_trading_cardsApp.swift */,
-				808C12C52BFAC4DE00452B9B /* ContentView.swift */,
-				808C12C72BFAC4DF00452B9B /* Assets.xcassets */,
+				80A47DDA2BFAEACC001FFFEE /* Other */,
+				80A47DD92BFAEABD001FFFEE /* Models */,
+				80A47DD82BFAEAA1001FFFEE /* ViewModels */,
+				80A47DD72BFAEA99001FFFEE /* Views */,
+				80F0095B2BFD12FC00A3E12F /* Resources */,
 				808C12C92BFAC4DF00452B9B /* Preview Content */,
 			);
 			path = "landmark-trading-cards";
@@ -127,6 +153,53 @@
 			path = "landmark-trading-cardsUITests";
 			sourceTree = "<group>";
 		};
+		80A47DD72BFAEA99001FFFEE /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				808C12C52BFAC4DE00452B9B /* MainView.swift */,
+				80A47DDB2BFAED7E001FFFEE /* ProfileView.swift */,
+				80A47DE32BFAF1B9001FFFEE /* LoginView.swift */,
+				80F009512BFCF4AD00A3E12F /* TradingCardView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		80A47DD82BFAEAA1001FFFEE /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				80A47DDD2BFAEEBB001FFFEE /* ProfileViewViewModel.swift */,
+				80A47DE12BFAF136001FFFEE /* LoginViewViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		80A47DD92BFAEABD001FFFEE /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				80F009572BFD121300A3E12F /* ModelData.swift */,
+				80F009592BFD127500A3E12F /* Landmark.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		80A47DDA2BFAEACC001FFFEE /* Other */ = {
+			isa = PBXGroup;
+			children = (
+				808C12C72BFAC4DF00452B9B /* Assets.xcassets */,
+				80A47DD52BFAE595001FFFEE /* GoogleService-Info.plist */,
+				808C12C32BFAC4DE00452B9B /* landmark_trading_cardsApp.swift */,
+			);
+			path = Other;
+			sourceTree = "<group>";
+		};
+		80F0095B2BFD12FC00A3E12F /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				80F009552BFD0E6300A3E12F /* landmarkedData.json */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -143,6 +216,11 @@
 			dependencies = (
 			);
 			name = "landmark-trading-cards";
+			packageProductDependencies = (
+				80A47DCF2BFAE56C001FFFEE /* FirebaseAuth */,
+				80A47DD12BFAE56C001FFFEE /* FirebaseFirestore */,
+				80A47DD32BFAE56D001FFFEE /* FirebaseFirestoreSwift */,
+			);
 			productName = "landmark-trading-cards";
 			productReference = 808C12C02BFAC4DE00452B9B /* landmark-trading-cards.app */;
 			productType = "com.apple.product-type.application";
@@ -215,6 +293,9 @@
 				Base,
 			);
 			mainGroup = 808C12B72BFAC4DE00452B9B;
+			packageReferences = (
+				80A47DCE2BFAE501001FFFEE /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+			);
 			productRefGroup = 808C12C12BFAC4DE00452B9B /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -231,8 +312,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				80F009562BFD0E6300A3E12F /* landmarkedData.json in Resources */,
 				808C12CB2BFAC4DF00452B9B /* Preview Assets.xcassets in Resources */,
 				808C12C82BFAC4DF00452B9B /* Assets.xcassets in Resources */,
+				80A47DD62BFAE595001FFFEE /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -257,7 +340,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				808C12C62BFAC4DE00452B9B /* ContentView.swift in Sources */,
+				80F009522BFCF4AD00A3E12F /* TradingCardView.swift in Sources */,
+				80A47DE42BFAF1B9001FFFEE /* LoginView.swift in Sources */,
+				808C12C62BFAC4DE00452B9B /* MainView.swift in Sources */,
+				80A47DE22BFAF136001FFFEE /* LoginViewViewModel.swift in Sources */,
+				80A47DDE2BFAEEBB001FFFEE /* ProfileViewViewModel.swift in Sources */,
+				80F0095A2BFD127500A3E12F /* Landmark.swift in Sources */,
+				80F009582BFD121300A3E12F /* ModelData.swift in Sources */,
+				80A47DDC2BFAED7E001FFFEE /* ProfileView.swift in Sources */,
 				808C12C42BFAC4DE00452B9B /* landmark_trading_cardsApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -427,8 +517,8 @@
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -455,8 +545,8 @@
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -582,6 +672,35 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		80A47DCE2BFAE501001FFFEE /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 10.26.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		80A47DCF2BFAE56C001FFFEE /* FirebaseAuth */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 80A47DCE2BFAE501001FFFEE /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAuth;
+		};
+		80A47DD12BFAE56C001FFFEE /* FirebaseFirestore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 80A47DCE2BFAE501001FFFEE /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseFirestore;
+		};
+		80A47DD32BFAE56D001FFFEE /* FirebaseFirestoreSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 80A47DCE2BFAE501001FFFEE /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseFirestoreSwift;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 808C12B82BFAC4DE00452B9B /* Project object */;
 }
