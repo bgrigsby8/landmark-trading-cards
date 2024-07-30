@@ -8,16 +8,8 @@
 import SwiftUI
 
 struct MainView: View {
-    @State private var selectedLandmarkId: Int?
-    @State private var isExpandedViewPresented = false
-    
-    let landmark: Landmark
-    let columns = [
-        GridItem(.adaptive(minimum: 150))
-    ]
-    
-    
     @State private var selectedIndex: Int?
+    
     var body: some View {
         TabView(selection: $selectedIndex) {
             NavigationStack() {
@@ -31,7 +23,7 @@ struct MainView: View {
             .tag(0)
             
             NavigationStack() {
-                MapView()
+                MapView(landmarks: landmarks)
             }
             .tabItem {
                 Label("Map", systemImage: "map.fill")
@@ -50,10 +42,19 @@ struct MainView: View {
             }
             .tag(2)
             
+            NavigationStack() {
+                Text("Camera view")
+                    .navigationTitle("Camera")
+            }
+            .tabItem {
+                Text("Camera")
+                Image(systemName: "camera.fill")
+            }
+            
         }
     }
 }
 
 #Preview {
-    MainView(landmark: landmarks[0])
+    MainView()
 }

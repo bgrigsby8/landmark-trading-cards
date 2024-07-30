@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct TradingCardsView: View {
-    @State private var selectedLandmarkId: Int?
+    @State private var selectedLandmarkId: Int? = nil
     @State private var isExpandedViewPresented = false
     
     let landmark: Landmark

@@ -9,12 +9,16 @@ import Foundation
 import CoreLocation
 
 class LocationDataManager : NSObject, CLLocationManagerDelegate, ObservableObject {
-    var locationManager = CLLocationManager()
+    @Published var locationManager = CLLocationManager()
     @Published var authorizationStatus: CLAuthorizationStatus?
+    @Published var alertMessage: String?
+    @Published var showingAlert = false
     
     override init() {
         super.init()
         locationManager.delegate = self
+        locationManager.requestWhenInUseAuthorization()
+        locationManager.startUpdatingLocation()
     }
     
     func locationManagerDidChangeAuthorization(_ manager: CLLocationManager) {
@@ -43,6 +47,21 @@ class LocationDataManager : NSObject, CLLocationManagerDelegate, ObservableObjec
     
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
         print("error: \(error.localizedDescription)")
+    }
+    
+    func locationManager(_ manager: CLLocationManager, didEnterRegion region: CLRegion) {
+        if let circularRegion  = region as? CLCircularRegion {
+            print("Entered region: \(circularRegion.identifier)")
+            showingAlert = true
+            // Handle region entry
+        }
+    }
+    
+    func startMonitoringRegions(for landmarks: [Landmark]) {
+        for landmark in landmarks {
+            let region = CLCircularRegion(center: CLLocationCoordinate2D(latitude: landmark.latitude, longitude: landmark.longitude), radius: 50, identifier: landmark.name)
+            region.notifyOnEntry = true
+        }
     }
 
 }

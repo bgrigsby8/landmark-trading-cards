@@ -16,6 +16,8 @@ struct Landmark: Hashable, Codable, Identifiable {
     var expandedImageName: String
     var description: String
     var rarity: Rarity
+    var latitude: Double
+    var longitude: Double 
 }
 
 enum Rarity: String, Codable {

@@ -7,7 +7,9 @@
         "collapsedImageName": "empire_state_building_collapsed",
         "expandedImageName": "empire_state_building_expanded",
         "description": "This is the description",
-        "rarity": "common"
+        "rarity": "common",
+        "latitude": 40.748403895463575,
+        "longitude": -73.98562148810659
     },
     {
         "id": 2,
@@ -17,7 +19,9 @@
         "collapsedImageName": "one_world_trade_center",
         "expandedImageName": "empire_state_building_expanded",
         "description": "This is the description",
-        "rarity": "common"
+        "rarity": "common",
+        "latitude": 37.33457552750038,
+        "longitude": -122.00911147827236
     },
     {
         "id": 3,
@@ -27,7 +31,9 @@
         "collapsedImageName": "radio_city_music_hall",
         "expandedImageName": "empire_state_building_expanded",
         "description": "This is the description",
-        "rarity": "common"
+        "rarity": "common",
+        "latitude": 37.33227171724309,
+        "longitude": -122.03100697805291
     },
     {
         "id": 4,
@@ -37,7 +43,9 @@
         "collapsedImageName": "statue_of_liberty",
         "expandedImageName": "empire_state_building_expanded",
         "description": "This is the description",
-        "rarity": "common"
+        "rarity": "common",
+        "latitude": 20.0,
+        "longitude": 25.0
     },
     {
         "id": 5,
@@ -47,7 +55,9 @@
         "collapsedImageName": "guggenheim_museum",
         "expandedImageName": "empire_state_building_expanded",
         "description": "This is the description",
-        "rarity": "common"
+        "rarity": "common",
+        "latitude": 20.0,
+        "longitude": 25.0
     },
     {
         "id": 6,
@@ -57,6 +67,8 @@
         "collapsedImageName": "manhattan_bridge_dumbo",
         "expandedImageName": "empire_state_building_expanded",
         "description": "This is the description",
-        "rarity": "common"
+        "rarity": "common",
+        "latitude": 20.0,
+        "longitude": 25.0
     }
 ]
