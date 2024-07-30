@@ -16,7 +16,9 @@ struct landmark_trading_cardsApp: App {
     
     var body: some Scene {
         WindowGroup {
-            MainView(landmark: landmarks[0])
+            NavigationView {
+                MainView(landmark: landmarks[0])
+            }
         }
     }
 }

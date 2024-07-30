@@ -10,39 +10,46 @@ import SwiftUI
 struct MainView: View {
     @State private var selectedLandmarkId: Int?
     @State private var isExpandedViewPresented = false
+    
     let landmark: Landmark
     let columns = [
         GridItem(.adaptive(minimum: 150))
     ]
-
+    
+    
+    @State private var selectedIndex: Int?
     var body: some View {
-        ZStack {
-            NavigationStack {
-                ScrollView(.vertical) {
-                    LazyVGrid(columns: columns, content: {
-                        ForEach(landmarks) { landmark in
-                            Button(action: {
-                                withAnimation {
-                                    selectedLandmarkId = landmark.id
-                                    isExpandedViewPresented = true
-                                }
-                            }) {
-                                TradingCardView(landmark: landmark)
-                            }
-                        }
-                    })
-                    .padding()
-                }
-                .navigationTitle("New York")
+        TabView(selection: $selectedIndex) {
+            NavigationStack() {
+                TradingCardsView(landmark: landmarks[0])
             }
-            if isExpandedViewPresented,
-               let selectedLandmarkId = selectedLandmarkId,
-               let selectedLandmark = landmarks.first(where: { $0.id == selectedLandmarkId }) {
-                ExpandedLandmarkView(landmark: selectedLandmark)
-                    .onTapGesture {
-                        isExpandedViewPresented = false
-                    }
+            .tabItem {
+                Text("Cards")
+                Image(systemName: "house.fill")
+                    .renderingMode(.template)
             }
+            .tag(0)
+            
+            NavigationStack() {
+                MapView()
+            }
+            .tabItem {
+                Label("Map", systemImage: "map.fill")
+            }
+            .tag(1)
+            
+            NavigationStack() {
+                Text("Profile view")
+                    .navigationTitle("Profile")
+                
+            }
+            .tabItem {
+                Text("Profile")
+                Image(systemName: "person.fill")
+                
+            }
+            .tag(2)
+            
         }
     }
 }
