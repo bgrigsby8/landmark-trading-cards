@@ -8,12 +8,15 @@
 import SwiftUI
 
 struct MainView: View {
+    @StateObject var locationDataManager = LocationDataManager()
     @State private var selectedIndex: Int?
+    @State private var showCameraView = false
+    @State private var isLandmarkNearby = false
     
     var body: some View {
         TabView(selection: $selectedIndex) {
-            NavigationStack() {
-                TradingCardsView(landmark: landmarks[0])
+            NavigationStack {
+                TradingCardsView(isLandmarkNearby: $isLandmarkNearby, landmark: landmarks[0])
             }
             .tabItem {
                 Text("Cards")
@@ -22,35 +25,27 @@ struct MainView: View {
             }
             .tag(0)
             
-            NavigationStack() {
-                MapView(landmarks: landmarks)
+            NavigationStack {
+                MapView(showCameraView: $showCameraView, isLandmarkNearby: $isLandmarkNearby)
             }
             .tabItem {
                 Label("Map", systemImage: "map.fill")
             }
             .tag(1)
             
-            NavigationStack() {
+            NavigationStack {
                 Text("Profile view")
                     .navigationTitle("Profile")
-                
             }
             .tabItem {
                 Text("Profile")
                 Image(systemName: "person.fill")
-                
             }
             .tag(2)
-            
-            NavigationStack() {
-                Text("Camera view")
-                    .navigationTitle("Camera")
-            }
-            .tabItem {
-                Text("Camera")
-                Image(systemName: "camera.fill")
-            }
-            
+        }
+        .environmentObject(locationDataManager)
+        .sheet(isPresented: $showCameraView) {
+            CameraView()
         }
     }
 }
@@ -58,3 +53,5 @@ struct MainView: View {
 #Preview {
     MainView()
 }
+
+

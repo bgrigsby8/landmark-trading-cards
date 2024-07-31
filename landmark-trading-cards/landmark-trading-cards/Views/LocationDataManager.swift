@@ -7,12 +7,16 @@
 
 import Foundation
 import CoreLocation
+import SwiftUI
+import UIKit
 
-class LocationDataManager : NSObject, CLLocationManagerDelegate, ObservableObject {
+class LocationDataManager: NSObject, CLLocationManagerDelegate, ObservableObject {
     @Published var locationManager = CLLocationManager()
     @Published var authorizationStatus: CLAuthorizationStatus?
     @Published var alertMessage: String?
     @Published var showingAlert = false
+    @Published var isInGeographicalZone = false
+    @Published var landmarks: [Landmark] = []
     
     override init() {
         super.init()
@@ -23,37 +27,40 @@ class LocationDataManager : NSObject, CLLocationManagerDelegate, ObservableObjec
     
     func locationManagerDidChangeAuthorization(_ manager: CLLocationManager) {
         switch manager.authorizationStatus {
-        case .notDetermined: // Authorization not determined yet
+        case .notDetermined:
             authorizationStatus = .notDetermined
             manager.requestWhenInUseAuthorization()
-            break
-        case .restricted, .denied: // Location services not available
-            // Insert code here of what should happen when location services are not available
+        case .restricted, .denied:
             authorizationStatus = .restricted
-            break
-        case .authorized, .authorizedWhenInUse, .authorizedAlways: // Location services are available
-            // Insert code here of what should happen when location services are available
+        case .authorizedWhenInUse, .authorizedAlways:
             authorizationStatus = .authorizedWhenInUse
-            manager.requestLocation()
-            break
+            manager.startUpdatingLocation()
         default:
             break
         }
     }
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        // Insert code to handle location updates
+        // Handle location updates
     }
     
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
-        print("error: \(error.localizedDescription)")
+        print("Error: \(error.localizedDescription)")
     }
     
     func locationManager(_ manager: CLLocationManager, didEnterRegion region: CLRegion) {
-        if let circularRegion  = region as? CLCircularRegion {
+        if let circularRegion = region as? CLCircularRegion {
             print("Entered region: \(circularRegion.identifier)")
+            self.triggerHapticFeedback()
             showingAlert = true
-            // Handle region entry
+            isInGeographicalZone = true
+        }
+    }
+    
+    func locationManager(_ manager: CLLocationManager, didExitRegion region: CLRegion) {
+        if let circularRegion = region as? CLCircularRegion {
+            print("Exited region: \(circularRegion.identifier)")
+            isInGeographicalZone = false
         }
     }
     
@@ -61,7 +68,14 @@ class LocationDataManager : NSObject, CLLocationManagerDelegate, ObservableObjec
         for landmark in landmarks {
             let region = CLCircularRegion(center: CLLocationCoordinate2D(latitude: landmark.latitude, longitude: landmark.longitude), radius: 50, identifier: landmark.name)
             region.notifyOnEntry = true
+            region.notifyOnExit = true
+            locationManager.startMonitoring(for: region)
         }
     }
-
+    
+    private func triggerHapticFeedback() {
+        let generator = UINotificationFeedbackGenerator()
+        generator.notificationOccurred(.success)
+    }
 }
+

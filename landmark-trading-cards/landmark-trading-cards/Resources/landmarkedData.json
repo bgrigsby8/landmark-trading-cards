@@ -70,5 +70,17 @@
         "rarity": "common",
         "latitude": 20.0,
         "longitude": 25.0
+    },
+    {
+        "id": 7,
+        "name": "Pookie's Apartment",
+        "location": "New York",
+        "unlocked": false,
+        "collapsedImageName": "manhattan_bridge_dumbo",
+        "expandedImageName": "empire_state_building_expanded",
+        "description": "This is the description",
+        "rarity": "common",
+        "latitude": 40.78059922080053,
+        "longitude": -73.94867946520465,
     }
 ]

@@ -32,6 +32,9 @@
 		80FF5A192C5866D00004E583 /* LocationDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80FF5A182C5866D00004E583 /* LocationDataManager.swift */; };
 		80FF5A1B2C58788E0004E583 /* TradingCardsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80FF5A1A2C58788E0004E583 /* TradingCardsView.swift */; };
 		80FF5A1D2C593A350004E583 /* LocationDeniedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80FF5A1C2C593A350004E583 /* LocationDeniedView.swift */; };
+		80FF5A1F2C5996E30004E583 /* CameraView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80FF5A1E2C5996E20004E583 /* CameraView.swift */; };
+		80FF5A312C5A90C60004E583 /* CameraOtherView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80FF5A302C5A90C60004E583 /* CameraOtherView.swift */; };
+		80FF5A332C5A90F80004E583 /* CameraViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80FF5A322C5A90F80004E583 /* CameraViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -77,6 +80,9 @@
 		80FF5A182C5866D00004E583 /* LocationDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationDataManager.swift; sourceTree = "<group>"; };
 		80FF5A1A2C58788E0004E583 /* TradingCardsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TradingCardsView.swift; sourceTree = "<group>"; };
 		80FF5A1C2C593A350004E583 /* LocationDeniedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationDeniedView.swift; sourceTree = "<group>"; };
+		80FF5A1E2C5996E20004E583 /* CameraView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraView.swift; sourceTree = "<group>"; };
+		80FF5A302C5A90C60004E583 /* CameraOtherView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraOtherView.swift; sourceTree = "<group>"; };
+		80FF5A322C5A90F80004E583 /* CameraViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -178,6 +184,8 @@
 				80FF5A182C5866D00004E583 /* LocationDataManager.swift */,
 				80FF5A1A2C58788E0004E583 /* TradingCardsView.swift */,
 				80FF5A1C2C593A350004E583 /* LocationDeniedView.swift */,
+				80FF5A1E2C5996E20004E583 /* CameraView.swift */,
+				80FF5A302C5A90C60004E583 /* CameraOtherView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -206,6 +214,7 @@
 				808C12C72BFAC4DF00452B9B /* Assets.xcassets */,
 				80A47DD52BFAE595001FFFEE /* GoogleService-Info.plist */,
 				808C12C32BFAC4DE00452B9B /* landmark_trading_cardsApp.swift */,
+				80FF5A322C5A90F80004E583 /* CameraViewController.swift */,
 			);
 			path = Other;
 			sourceTree = "<group>";
@@ -359,6 +368,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				80FF5A1B2C58788E0004E583 /* TradingCardsView.swift in Sources */,
+				80FF5A332C5A90F80004E583 /* CameraViewController.swift in Sources */,
 				80F009522BFCF4AD00A3E12F /* TradingCardView.swift in Sources */,
 				80A47DE42BFAF1B9001FFFEE /* LoginView.swift in Sources */,
 				808C12C62BFAC4DE00452B9B /* MainView.swift in Sources */,
@@ -368,11 +378,13 @@
 				80A47DDE2BFAEEBB001FFFEE /* ProfileViewViewModel.swift in Sources */,
 				80F0095A2BFD127500A3E12F /* Landmark.swift in Sources */,
 				80FF5A192C5866D00004E583 /* LocationDataManager.swift in Sources */,
+				80FF5A312C5A90C60004E583 /* CameraOtherView.swift in Sources */,
 				80F009582BFD121300A3E12F /* ModelData.swift in Sources */,
 				80FF5A172C5859FE0004E583 /* LandmarkAnnotation.swift in Sources */,
 				80A47DDC2BFAED7E001FFFEE /* ProfileView.swift in Sources */,
 				808C12C42BFAC4DE00452B9B /* landmark_trading_cardsApp.swift in Sources */,
 				80FF5A132C58472C0004E583 /* ExpandedLandmarkView.swift in Sources */,
+				80FF5A1F2C5996E30004E583 /* CameraView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -536,8 +548,10 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"landmark-trading-cards/Preview Content\"";
+				DEVELOPMENT_TEAM = 8SAKC4QN48;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSCameraUsageDescription = "Camera is needed to capture landmarks";
 				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "Need location services for identifying landmarks";
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "App needs to access your location data";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -566,8 +580,10 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"landmark-trading-cards/Preview Content\"";
+				DEVELOPMENT_TEAM = 8SAKC4QN48;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSCameraUsageDescription = "Camera is needed to capture landmarks";
 				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "Need location services for identifying landmarks";
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "App needs to access your location data";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;

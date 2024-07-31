@@ -9,18 +9,18 @@ import SwiftUI
 import MapKit
 
 struct MapView: View {
-    @StateObject var locationDataManager = LocationDataManager()
+    @EnvironmentObject var locationDataManager: LocationDataManager
     @State private var userLocation: CLLocationCoordinate2D?
     @State private var cameraPosition: MapCameraPosition = .userLocation(fallback: .automatic)
+    @Binding var showCameraView: Bool
+    @Binding var isLandmarkNearby: Bool
 
-    var landmarks: [Landmark]
-    
     var body: some View {
         VStack {
-            switch locationDataManager.locationManager.authorizationStatus {
+            switch locationDataManager.authorizationStatus {
             case .authorizedWhenInUse:
                 Map(position: $cameraPosition) {
-                    ForEach(landmarks) { landmark in
+                    ForEach(locationDataManager.landmarks) { landmark in
                         MapCircle(center: CLLocationCoordinate2D(latitude: landmark.latitude, longitude: landmark.longitude), radius: CLLocationDistance(integerLiteral: 50))
                     }
                     UserAnnotation()
@@ -30,10 +30,20 @@ struct MapView: View {
                 }
                 .onAppear {
                     updateMapRegion()
-                    locationDataManager.startMonitoringRegions(for: landmarks)
+                    locationDataManager.startMonitoringRegions(for: locationDataManager.landmarks)
                 }
                 .alert(isPresented: $locationDataManager.showingAlert) {
-                    Alert(title: Text("Landmark Nearby!"), message: Text("Switch to camera mode and snap a pic to unlock the nearby landmark"))
+                    Alert(
+                        title: Text("Landmark Nearby!"),
+                        message: Text("Switch to camera mode and snap a pic to unlock the nearby landmark"),
+                        primaryButton: .default(Text("Go to Camera")) {
+                            showCameraView = true
+                        },
+                        secondaryButton: .cancel()
+                    )
+                }
+                .onChange(of: locationDataManager.isInGeographicalZone) { isInZone in
+                    isLandmarkNearby = isInZone
                 }
             case .restricted, .denied:
                 LocationDeniedView()
@@ -63,7 +73,11 @@ struct MapView: View {
 }
 
 #Preview {
-    MapView(landmarks: landmarks)
+    MapView(showCameraView: .constant(false), isLandmarkNearby: .constant(false))
+        .environmentObject(LocationDataManager())
 }
+
+
+
 
 
