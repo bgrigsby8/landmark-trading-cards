@@ -16,15 +16,20 @@ class LocationDataManager: NSObject, CLLocationManagerDelegate, ObservableObject
     @Published var alertMessage: String?
     @Published var showingAlert = false
     @Published var isInGeographicalZone = false
-    @Published var landmarks: [Landmark] = []
-    
+
+
     override init() {
         super.init()
         locationManager.delegate = self
         locationManager.requestWhenInUseAuthorization()
         locationManager.startUpdatingLocation()
+        
+        // Check current location against monitored regions on startup
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1) { // Add a slight delay to ensure location is updated
+            self.checkCurrentLocation()
+        }
     }
-    
+
     func locationManagerDidChangeAuthorization(_ manager: CLLocationManager) {
         switch manager.authorizationStatus {
         case .notDetermined:
@@ -70,6 +75,20 @@ class LocationDataManager: NSObject, CLLocationManagerDelegate, ObservableObject
             region.notifyOnEntry = true
             region.notifyOnExit = true
             locationManager.startMonitoring(for: region)
+        }
+    }
+    
+    private func checkCurrentLocation() {
+        guard let currentLocation = locationManager.location else { return }
+        
+        for region in locationManager.monitoredRegions {
+            if let circularRegion = region as? CLCircularRegion, circularRegion.contains(currentLocation.coordinate) {
+                print("Already in region: \(circularRegion.identifier)")
+                triggerHapticFeedback()
+                showingAlert = true
+                isInGeographicalZone = true
+                break
+            }
         }
     }
     

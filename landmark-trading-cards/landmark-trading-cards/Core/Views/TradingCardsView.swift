@@ -8,10 +8,12 @@
 import SwiftUI
 
 struct TradingCardsView: View {
+    @EnvironmentObject var locationDataManager: LocationDataManager
     @State private var selectedLandmarkId: Int? = nil
     @State private var isExpandedViewPresented = false
     @State private var animateCameraIcon = false
     @State private var showCameraView = false
+    @State private var selectedCity: String = "Select City"
     @Binding var isLandmarkNearby: Bool
     
     let landmark: Landmark
@@ -19,28 +21,45 @@ struct TradingCardsView: View {
         GridItem(.adaptive(minimum: 150))
     ]
     
+    var uniqueCities: [String] {
+        let cities = landmarks.map { $0.location }
+        return Array(Set(cities))
+    }
+    
+    var filteredLandmarks: [Landmark] {
+        if selectedCity == "Select City" {
+            return landmarks
+        } else {
+            return landmarks.filter { $0.location == selectedCity }
+        }
+    }
+    
     var body: some View {
         ZStack {
             NavigationStack {
                 VStack {
                     HStack {
-                        Text("New York")
-                            .font(.largeTitle)
-                            .bold()
+                        Menu {
+                            ForEach(uniqueCities, id:\.self) { city in
+                                Button(action: {
+                                    selectedCity = city
+                                }) {
+                                    Text(city)
+                                }
+                            }
+                        } label: {
+                            Text(selectedCity)
+                                .font(.largeTitle)
+                                .bold()
+                                .foregroundStyle(.black)
+                        }
                         Spacer()
-                        if isLandmarkNearby {
-//                            Button(action: {
-//                                print("Showing camera view")
-//                                showCameraView = true
-//                            }) {
-//                                Image(systemName: "camera.fill")
-//                                    .foregroundColor(.blue)
-//                                    .opacity(animateCameraIcon ? 1.0 : 0.3)
-//                                    .scaleEffect(animateCameraIcon ? 1.2 : 1.0)
-//                            }
+                        if locationDataManager.isInGeographicalZone {
                             NavigationLink(destination: CameraView()) {
                                 Image(systemName: "camera.fill")
+                                    .resizable()
                                     .foregroundColor(.blue)
+                                    .frame(width: 30, height: 30)
                                     .opacity(animateCameraIcon ? 1.0 : 0.3)
                                     .scaleEffect(animateCameraIcon ? 1.2: 1.0)
                             }
@@ -51,14 +70,17 @@ struct TradingCardsView: View {
                             }
                         } else {
                             Image(systemName: "camera")
+                                .resizable()
                                 .foregroundColor(.gray)
+                                .frame(width: 30, height: 30)
                         }
                     }
-                    .padding([.horizontal, .top])
+                    .padding(.horizontal, 25.0)
+                    .padding(.top)
                     
                     ScrollView(.vertical) {
                         LazyVGrid(columns: columns, content: {
-                            ForEach(landmarks) { landmark in
+                            ForEach(filteredLandmarks) { landmark in
                                 Button(action: {
                                     withAnimation {
                                         selectedLandmarkId = landmark.id
@@ -91,7 +113,8 @@ struct TradingCardsView: View {
 }
 
 #Preview {
-    TradingCardsView(isLandmarkNearby: .constant(true), landmark: landmarks[0])
+    TradingCardsView(isLandmarkNearby: .constant(false), landmark: landmarks[0])
+        .environmentObject(LocationDataManager())
 }
 
 

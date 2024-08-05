@@ -5,11 +5,14 @@
 //  Created by Brad Grigsby on 5/19/24.
 //
 
+import Firebase
 import FirebaseCore
 import SwiftUI
 
 @main
 struct landmark_trading_cardsApp: App {
+    @StateObject var viewModel = AuthViewModel()
+    
     init() {
         FirebaseApp.configure()
     }
@@ -18,6 +21,7 @@ struct landmark_trading_cardsApp: App {
         WindowGroup {
             NavigationView {
                 MainView()
+                    .environmentObject(viewModel)
             }
         }
     }

@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8052C3162C5E78200007FA98 /* LoginInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8052C3152C5E78200007FA98 /* LoginInputView.swift */; };
+		8052C3182C5E7D4A0007FA98 /* RegistrationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8052C3172C5E7D4A0007FA98 /* RegistrationView.swift */; };
+		8052C31A2C5E80EB0007FA98 /* SettingsRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8052C3192C5E80EB0007FA98 /* SettingsRowView.swift */; };
+		8052C31C2C5E82AF0007FA98 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8052C31B2C5E82AF0007FA98 /* User.swift */; };
+		8052C32B2C5E89170007FA98 /* AuthViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8052C32A2C5E89170007FA98 /* AuthViewModel.swift */; };
 		808C12C42BFAC4DE00452B9B /* landmark_trading_cardsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 808C12C32BFAC4DE00452B9B /* landmark_trading_cardsApp.swift */; };
 		808C12C62BFAC4DE00452B9B /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 808C12C52BFAC4DE00452B9B /* MainView.swift */; };
 		808C12C82BFAC4DF00452B9B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 808C12C72BFAC4DF00452B9B /* Assets.xcassets */; };
@@ -55,6 +60,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		8052C3152C5E78200007FA98 /* LoginInputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginInputView.swift; sourceTree = "<group>"; };
+		8052C3172C5E7D4A0007FA98 /* RegistrationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationView.swift; sourceTree = "<group>"; };
+		8052C3192C5E80EB0007FA98 /* SettingsRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsRowView.swift; sourceTree = "<group>"; };
+		8052C31B2C5E82AF0007FA98 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		8052C32A2C5E89170007FA98 /* AuthViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewModel.swift; sourceTree = "<group>"; };
 		808C12C02BFAC4DE00452B9B /* landmark-trading-cards.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "landmark-trading-cards.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		808C12C32BFAC4DE00452B9B /* landmark_trading_cardsApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = landmark_trading_cardsApp.swift; sourceTree = "<group>"; };
 		808C12C52BFAC4DE00452B9B /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
@@ -113,6 +123,65 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		8052C3242C5E87C70007FA98 /* App */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		8052C3252C5E87CC0007FA98 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		8052C3262C5E87D40007FA98 /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				8052C3272C5E88CF0007FA98 /* Authentication */,
+				80A47DD92BFAEABD001FFFEE /* Models */,
+				80A47DD82BFAEAA1001FFFEE /* ViewModels */,
+				80A47DD72BFAEA99001FFFEE /* Views */,
+			);
+			path = Core;
+			sourceTree = "<group>";
+		};
+		8052C3272C5E88CF0007FA98 /* Authentication */ = {
+			isa = PBXGroup;
+			children = (
+				8052C3282C5E88EA0007FA98 /* View */,
+				8052C3292C5E88EE0007FA98 /* ViewModels */,
+			);
+			path = Authentication;
+			sourceTree = "<group>";
+		};
+		8052C3282C5E88EA0007FA98 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				80A47DE32BFAF1B9001FFFEE /* LoginView.swift */,
+				8052C3172C5E7D4A0007FA98 /* RegistrationView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		8052C3292C5E88EE0007FA98 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				8052C32A2C5E89170007FA98 /* AuthViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		8052C32C2C5E8BAD0007FA98 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				808C12C52BFAC4DE00452B9B /* MainView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		808C12B72BFAC4DE00452B9B = {
 			isa = PBXGroup;
 			children = (
@@ -136,10 +205,11 @@
 		808C12C22BFAC4DE00452B9B /* landmark-trading-cards */ = {
 			isa = PBXGroup;
 			children = (
+				8052C32C2C5E8BAD0007FA98 /* Views */,
+				8052C3242C5E87C70007FA98 /* App */,
+				8052C3252C5E87CC0007FA98 /* Components */,
+				8052C3262C5E87D40007FA98 /* Core */,
 				80A47DDA2BFAEACC001FFFEE /* Other */,
-				80A47DD92BFAEABD001FFFEE /* Models */,
-				80A47DD82BFAEAA1001FFFEE /* ViewModels */,
-				80A47DD72BFAEA99001FFFEE /* Views */,
 				80F0095B2BFD12FC00A3E12F /* Resources */,
 				808C12C92BFAC4DF00452B9B /* Preview Content */,
 			);
@@ -174,9 +244,7 @@
 		80A47DD72BFAEA99001FFFEE /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				808C12C52BFAC4DE00452B9B /* MainView.swift */,
 				80A47DDB2BFAED7E001FFFEE /* ProfileView.swift */,
-				80A47DE32BFAF1B9001FFFEE /* LoginView.swift */,
 				80F009512BFCF4AD00A3E12F /* TradingCardView.swift */,
 				80FF5A122C58472C0004E583 /* ExpandedLandmarkView.swift */,
 				80FF5A142C5859EB0004E583 /* MapView.swift */,
@@ -186,6 +254,8 @@
 				80FF5A1C2C593A350004E583 /* LocationDeniedView.swift */,
 				80FF5A1E2C5996E20004E583 /* CameraView.swift */,
 				80FF5A302C5A90C60004E583 /* CameraOtherView.swift */,
+				8052C3152C5E78200007FA98 /* LoginInputView.swift */,
+				8052C3192C5E80EB0007FA98 /* SettingsRowView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -204,6 +274,7 @@
 			children = (
 				80F009572BFD121300A3E12F /* ModelData.swift */,
 				80F009592BFD127500A3E12F /* Landmark.swift */,
+				8052C31B2C5E82AF0007FA98 /* User.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -370,21 +441,26 @@
 				80FF5A1B2C58788E0004E583 /* TradingCardsView.swift in Sources */,
 				80FF5A332C5A90F80004E583 /* CameraViewController.swift in Sources */,
 				80F009522BFCF4AD00A3E12F /* TradingCardView.swift in Sources */,
+				8052C3162C5E78200007FA98 /* LoginInputView.swift in Sources */,
 				80A47DE42BFAF1B9001FFFEE /* LoginView.swift in Sources */,
 				808C12C62BFAC4DE00452B9B /* MainView.swift in Sources */,
 				80FF5A152C5859EB0004E583 /* MapView.swift in Sources */,
 				80A47DE22BFAF136001FFFEE /* LoginViewViewModel.swift in Sources */,
 				80FF5A1D2C593A350004E583 /* LocationDeniedView.swift in Sources */,
 				80A47DDE2BFAEEBB001FFFEE /* ProfileViewViewModel.swift in Sources */,
+				8052C31C2C5E82AF0007FA98 /* User.swift in Sources */,
 				80F0095A2BFD127500A3E12F /* Landmark.swift in Sources */,
 				80FF5A192C5866D00004E583 /* LocationDataManager.swift in Sources */,
 				80FF5A312C5A90C60004E583 /* CameraOtherView.swift in Sources */,
 				80F009582BFD121300A3E12F /* ModelData.swift in Sources */,
 				80FF5A172C5859FE0004E583 /* LandmarkAnnotation.swift in Sources */,
 				80A47DDC2BFAED7E001FFFEE /* ProfileView.swift in Sources */,
+				8052C32B2C5E89170007FA98 /* AuthViewModel.swift in Sources */,
 				808C12C42BFAC4DE00452B9B /* landmark_trading_cardsApp.swift in Sources */,
 				80FF5A132C58472C0004E583 /* ExpandedLandmarkView.swift in Sources */,
 				80FF5A1F2C5996E30004E583 /* CameraView.swift in Sources */,
+				8052C3182C5E7D4A0007FA98 /* RegistrationView.swift in Sources */,
+				8052C31A2C5E80EB0007FA98 /* SettingsRowView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -551,6 +627,7 @@
 				DEVELOPMENT_TEAM = 8SAKC4QN48;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = LandMarked;
 				INFOPLIST_KEY_NSCameraUsageDescription = "Camera is needed to capture landmarks";
 				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "Need location services for identifying landmarks";
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "App needs to access your location data";
@@ -583,6 +660,7 @@
 				DEVELOPMENT_TEAM = 8SAKC4QN48;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = LandMarked;
 				INFOPLIST_KEY_NSCameraUsageDescription = "Camera is needed to capture landmarks";
 				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "Need location services for identifying landmarks";
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "App needs to access your location data";

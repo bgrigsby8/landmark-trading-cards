@@ -14,14 +14,16 @@ struct MapView: View {
     @State private var cameraPosition: MapCameraPosition = .userLocation(fallback: .automatic)
     @Binding var showCameraView: Bool
     @Binding var isLandmarkNearby: Bool
-
+        
     var body: some View {
         VStack {
             switch locationDataManager.authorizationStatus {
             case .authorizedWhenInUse:
                 Map(position: $cameraPosition) {
-                    ForEach(locationDataManager.landmarks) { landmark in
+                    ForEach(landmarks) { landmark in
                         MapCircle(center: CLLocationCoordinate2D(latitude: landmark.latitude, longitude: landmark.longitude), radius: CLLocationDistance(integerLiteral: 50))
+                            .stroke(Color.blue, lineWidth: 2)
+                            .tag(landmark.name)
                     }
                     UserAnnotation()
                 }
@@ -29,8 +31,9 @@ struct MapView: View {
                     MapUserLocationButton()
                 }
                 .onAppear {
+                    print("Map view appeared")
                     updateMapRegion()
-                    locationDataManager.startMonitoringRegions(for: locationDataManager.landmarks)
+                    locationDataManager.startMonitoringRegions(for: landmarks)
                 }
                 .alert(isPresented: $locationDataManager.showingAlert) {
                     Alert(
