@@ -88,8 +88,17 @@ fastlane/test_output
 # https://github.com/johnno1962/injectionforxcode
 
 iOSInjectionProject/
-venv_3.8.12
+venv_3.8.12/
 *.h5
 *.keras
 data/
-**.DS_Store
+.DS_Store
+landmark-trading-cards/.DS_Store
+landmark-trading-cards/landmark-trading-cards/.DS_Store
+landmark-trading-cards/landmark-trading-cards/Other/.DS_Store
+
+# Python version management
+.python-version
+
+# Machine learning models
+*.mlpackage
