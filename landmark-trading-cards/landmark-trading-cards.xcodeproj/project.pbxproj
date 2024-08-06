@@ -12,6 +12,8 @@
 		8052C31A2C5E80EB0007FA98 /* SettingsRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8052C3192C5E80EB0007FA98 /* SettingsRowView.swift */; };
 		8052C31C2C5E82AF0007FA98 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8052C31B2C5E82AF0007FA98 /* User.swift */; };
 		8052C32B2C5E89170007FA98 /* AuthViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8052C32A2C5E89170007FA98 /* AuthViewModel.swift */; };
+		8052C3322C62C7B80007FA98 /* FastViTMA36F16.mlpackage in Sources */ = {isa = PBXBuildFile; fileRef = 8052C3312C62C7B70007FA98 /* FastViTMA36F16.mlpackage */; };
+		8052C33A2C62D3EB0007FA98 /* MobileNetV3.mlpackage in Sources */ = {isa = PBXBuildFile; fileRef = 8052C3392C62D3EB0007FA98 /* MobileNetV3.mlpackage */; };
 		808C12C42BFAC4DE00452B9B /* landmark_trading_cardsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 808C12C32BFAC4DE00452B9B /* landmark_trading_cardsApp.swift */; };
 		808C12C62BFAC4DE00452B9B /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 808C12C52BFAC4DE00452B9B /* MainView.swift */; };
 		808C12C82BFAC4DF00452B9B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 808C12C72BFAC4DF00452B9B /* Assets.xcassets */; };
@@ -65,6 +67,8 @@
 		8052C3192C5E80EB0007FA98 /* SettingsRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsRowView.swift; sourceTree = "<group>"; };
 		8052C31B2C5E82AF0007FA98 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		8052C32A2C5E89170007FA98 /* AuthViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewModel.swift; sourceTree = "<group>"; };
+		8052C3312C62C7B70007FA98 /* FastViTMA36F16.mlpackage */ = {isa = PBXFileReference; lastKnownFileType = folder.mlpackage; path = FastViTMA36F16.mlpackage; sourceTree = "<group>"; };
+		8052C3392C62D3EB0007FA98 /* MobileNetV3.mlpackage */ = {isa = PBXFileReference; lastKnownFileType = folder.mlpackage; name = MobileNetV3.mlpackage; path = ../../MobileNetV3.mlpackage; sourceTree = "<group>"; };
 		808C12C02BFAC4DE00452B9B /* landmark-trading-cards.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "landmark-trading-cards.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		808C12C32BFAC4DE00452B9B /* landmark_trading_cardsApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = landmark_trading_cardsApp.swift; sourceTree = "<group>"; };
 		808C12C52BFAC4DE00452B9B /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
@@ -205,6 +209,8 @@
 		808C12C22BFAC4DE00452B9B /* landmark-trading-cards */ = {
 			isa = PBXGroup;
 			children = (
+				8052C3312C62C7B70007FA98 /* FastViTMA36F16.mlpackage */,
+				8052C3392C62D3EB0007FA98 /* MobileNetV3.mlpackage */,
 				8052C32C2C5E8BAD0007FA98 /* Views */,
 				8052C3242C5E87C70007FA98 /* App */,
 				8052C3252C5E87CC0007FA98 /* Components */,
@@ -453,11 +459,13 @@
 				80FF5A192C5866D00004E583 /* LocationDataManager.swift in Sources */,
 				80FF5A312C5A90C60004E583 /* CameraOtherView.swift in Sources */,
 				80F009582BFD121300A3E12F /* ModelData.swift in Sources */,
+				8052C33A2C62D3EB0007FA98 /* MobileNetV3.mlpackage in Sources */,
 				80FF5A172C5859FE0004E583 /* LandmarkAnnotation.swift in Sources */,
 				80A47DDC2BFAED7E001FFFEE /* ProfileView.swift in Sources */,
 				8052C32B2C5E89170007FA98 /* AuthViewModel.swift in Sources */,
 				808C12C42BFAC4DE00452B9B /* landmark_trading_cardsApp.swift in Sources */,
 				80FF5A132C58472C0004E583 /* ExpandedLandmarkView.swift in Sources */,
+				8052C3322C62C7B80007FA98 /* FastViTMA36F16.mlpackage in Sources */,
 				80FF5A1F2C5996E30004E583 /* CameraView.swift in Sources */,
 				8052C3182C5E7D4A0007FA98 /* RegistrationView.swift in Sources */,
 				8052C31A2C5E80EB0007FA98 /* SettingsRowView.swift in Sources */,

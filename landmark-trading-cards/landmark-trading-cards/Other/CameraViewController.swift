@@ -5,10 +5,25 @@
 //  Created by Brad Grigsby on 7/31/24.
 //
 
+//
+//  CameraViewController.swift
+//  landmark-trading-cards
+//
+//  Created by Brad Grigsby on 7/31/24.
+//
+
+//
+//  CameraViewController.swift
+//  landmark-trading-cards
+//
+//  Created by Brad Grigsby on 7/31/24.
+//
+
 import AVFoundation
 import UIKit
 import SwiftUI
 import Vision
+import CoreML
 
 class CameraViewController: UIViewController, AVCaptureVideoDataOutputSampleBufferDelegate {
     var session: AVCaptureSession?
@@ -57,25 +72,44 @@ class CameraViewController: UIViewController, AVCaptureVideoDataOutputSampleBuff
     }
     
     private func setupVision() {
-        print("setting up vision")
-        return
-//        guard let model = try? VNCoreMLModel(for: YourMLModel().model) else {
-//            print("CameraViewController: Could not load Vision model")
-//            return
-//        }
-//        
-//        let request = VNCoreMLRequest(model: model) { [weak self] (request, error) in
-//            if let observations = request.results as? [VNRecognizedObjectObservation] {
-//                let recognizedLandmarks = observations.map { $0.labels.first?.identifier ?? "" }.joined(separator: ", ")
-//                DispatchQueue.main.async {
-//                    self?.recognizedLandmarks = recognizedLandmarks
-//                    print("CameraViewController: Recognized landmarks: \(recognizedLandmarks)")
-//                }
-//            }
-//        }
-//        requests = [request]
-//        
-//        print("CameraViewController: Vision setup complete")
+        let config = MLModelConfiguration()
+        guard let coreMLModel = try? MobileNetV3(configuration: config) else {
+            print("CameraViewController: Could not load CoreML model")
+            return
+        }
+        print("CameraViewController: coreMLModel loaded: \(coreMLModel.model.modelDescription)")
+        
+        guard let visionModel = try? VNCoreMLModel(for: coreMLModel.model) else {
+            print("CameraViewController: Could not create Vision model")
+            return
+        }
+        
+        print("CameraViewController: visionModel loaded: \(visionModel)")
+        
+        let request = VNCoreMLRequest(model: visionModel) { [weak self] (request, error) in
+            if let error = error {
+                print("CameraViewController: Vision request error: \(error)")
+                return
+            }
+            
+            if let observations = request.results as? [VNClassificationObservation] {
+                for observation in observations {
+                    print("Identifier: \(observation.identifier), Confidence: \(observation.confidence)")
+                }
+                
+                let recognizedLandmarks = observations.map { "\($0.identifier) (\($0.confidence * 100)%)" }.joined(separator: ", ")
+                DispatchQueue.main.async {
+                    self?.recognizedLandmarks = recognizedLandmarks
+                    print("CameraViewController: Recognized landmarks: \(recognizedLandmarks)")
+                }
+            } else {
+                print("CameraViewController: No observations found")
+            }
+        }
+        
+        request.imageCropAndScaleOption = .centerCrop
+        requests = [request]
+        print("CameraViewController: Vision setup complete")
     }
     
     func captureOutput(_ output: AVCaptureOutput, didOutput sampleBuffer: CMSampleBuffer, from connection: AVCaptureConnection) {
@@ -97,6 +131,3 @@ class CameraViewController: UIViewController, AVCaptureVideoDataOutputSampleBuff
         }
     }
 }
-
-
-
