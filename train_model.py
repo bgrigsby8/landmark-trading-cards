@@ -65,8 +65,21 @@ _ = model.predict(dummy_input)
 # Explicitly build the model by calling it on some data
 model.build(input_shape=(None, 224, 224, 3))
 
-# Convert the model to CoreML and specify iOS14 as the minimum deployment target
-coreml_model = ct.convert(model, source='tensorflow', minimum_deployment_target=ct.target.iOS14)
+# Define the input and output features with appropriate types
+input_features = ct.ImageType(name="MobilenetV3small_input", shape=(1, 224, 224, 3), color_layout=ct.colorlayout.RGB)
+
+# Convert the model to CoreML
+coreml_model = ct.convert(
+    model, 
+    inputs=[input_features], 
+    source='tensorflow', 
+    minimum_deployment_target=ct.target.iOS14
+)
+
+# Add metadata
+coreml_model.short_description = "MobileNetV3 Image Classification Model"
+coreml_model.author = "Brad Grigsby"
+coreml_model.license = "Your License"
 
 # Save the CoreML model
 coreml_model.save('MobileNetV3.mlpackage')
