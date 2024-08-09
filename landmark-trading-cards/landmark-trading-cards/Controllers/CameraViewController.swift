@@ -5,20 +5,6 @@
 //  Created by Brad Grigsby on 7/31/24.
 //
 
-//
-//  CameraViewController.swift
-//  landmark-trading-cards
-//
-//  Created by Brad Grigsby on 7/31/24.
-//
-
-//
-//  CameraViewController.swift
-//  landmark-trading-cards
-//
-//  Created by Brad Grigsby on 7/31/24.
-//
-
 import AVFoundation
 import UIKit
 import SwiftUI
@@ -30,9 +16,11 @@ class CameraViewController: UIViewController, AVCaptureVideoDataOutputSampleBuff
     @Binding var recognizedLandmarks: String
     
     private var requests = [VNRequest]()
+    private var locationDataManager: LocationDataManager?
     
-    init(recognizedLandmarks: Binding<String>) {
+    init(recognizedLandmarks: Binding<String>, locationDataManager: LocationDataManager) {
         self._recognizedLandmarks = recognizedLandmarks
+        self.locationDataManager = locationDataManager
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -73,6 +61,7 @@ class CameraViewController: UIViewController, AVCaptureVideoDataOutputSampleBuff
     
     private func setupVision() {
         let config = MLModelConfiguration()
+        // MobileNetV3 is the name of the image classification model
         guard let coreMLModel = try? MobileNetV3(configuration: config) else {
             print("CameraViewController: Could not load CoreML model")
             return
@@ -92,15 +81,19 @@ class CameraViewController: UIViewController, AVCaptureVideoDataOutputSampleBuff
                 return
             }
             
-            if let observations = request.results as? [VNClassificationObservation] {
-                for observation in observations {
-                    print("Identifier: \(observation.identifier), Confidence: \(observation.confidence)")
-                }
+            if let observations = request.results as? [VNClassificationObservation], let bestResult = observations.first {
+                print("Identifier: \(bestResult.identifier), Confidence: \(bestResult.confidence)")
                 
-                let recognizedLandmarks = observations.map { "\($0.identifier) (\($0.confidence * 100)%)" }.joined(separator: ", ")
                 DispatchQueue.main.async {
-                    self?.recognizedLandmarks = recognizedLandmarks
-                    print("CameraViewController: Recognized landmarks: \(recognizedLandmarks)")
+                    self?.recognizedLandmarks = bestResult.identifier
+                    print("\(self?.locationDataManager?.inLandmark ?? "Error")")
+                    
+                    if let inLandmark = self?.locationDataManager?.inLandmark, !inLandmark.isEmpty {
+                        if inLandmark == bestResult.identifier && bestResult.confidence > 0.5 {
+                            // Unlock the trading card here
+                            self?.unlockTradingCard(for: bestResult.identifier)
+                        }
+                    }
                 }
             } else {
                 print("CameraViewController: No observations found")
@@ -109,7 +102,10 @@ class CameraViewController: UIViewController, AVCaptureVideoDataOutputSampleBuff
         
         request.imageCropAndScaleOption = .centerCrop
         requests = [request]
-        print("CameraViewController: Vision setup complete")
+    }
+    
+    private func unlockTradingCard(for landmark: String) {
+        print("Unlocking trading card for: \(landmark)")
     }
     
     func captureOutput(_ output: AVCaptureOutput, didOutput sampleBuffer: CMSampleBuffer, from connection: AVCaptureConnection) {

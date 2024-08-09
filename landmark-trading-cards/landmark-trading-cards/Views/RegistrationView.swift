@@ -55,6 +55,7 @@ struct RegistrationView: View {
             Button {
                 Task {
                     try await viewModel.createUser(withEmail: email, password: password, fullname: fullname)
+                    // TODO: Show an alert or message to inform the user that a verification email has been sent
                 }
             } label: {
                 HStack {

@@ -16,12 +16,14 @@ class LocationDataManager: NSObject, CLLocationManagerDelegate, ObservableObject
     @Published var alertMessage: String?
     @Published var showingAlert = false
     @Published var isInGeographicalZone = false
+    @Published var inLandmark = ""
 
 
     override init() {
         super.init()
         locationManager.delegate = self
         locationManager.requestWhenInUseAuthorization()
+        startMonitoringRegions(for: landmarks)
         locationManager.startUpdatingLocation()
         
         // Check current location against monitored regions on startup
@@ -59,6 +61,7 @@ class LocationDataManager: NSObject, CLLocationManagerDelegate, ObservableObject
             self.triggerHapticFeedback()
             showingAlert = true
             isInGeographicalZone = true
+            inLandmark = circularRegion.identifier
         }
     }
     
@@ -66,12 +69,17 @@ class LocationDataManager: NSObject, CLLocationManagerDelegate, ObservableObject
         if let circularRegion = region as? CLCircularRegion {
             print("Exited region: \(circularRegion.identifier)")
             isInGeographicalZone = false
+            inLandmark = ""
         }
     }
     
     func startMonitoringRegions(for landmarks: [Landmark]) {
+        locationManager.monitoredRegions.forEach { region in
+            locationManager.stopMonitoring(for: region)
+        }
         for landmark in landmarks {
-            let region = CLCircularRegion(center: CLLocationCoordinate2D(latitude: landmark.latitude, longitude: landmark.longitude), radius: 50, identifier: landmark.name)
+            let region = CLCircularRegion(center: CLLocationCoordinate2D(latitude: landmark.latitude, longitude: landmark.longitude), radius: 25, identifier: landmark.identifier)
+            print("\(region.identifier)")
             region.notifyOnEntry = true
             region.notifyOnExit = true
             locationManager.startMonitoring(for: region)
@@ -87,6 +95,7 @@ class LocationDataManager: NSObject, CLLocationManagerDelegate, ObservableObject
                 triggerHapticFeedback()
                 showingAlert = true
                 isInGeographicalZone = true
+                inLandmark = circularRegion.identifier
                 break
             }
         }

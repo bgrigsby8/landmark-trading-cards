@@ -10,6 +10,7 @@ import SwiftUI
 struct Landmark: Hashable, Codable, Identifiable {
     var id: Int
     var name: String
+    var identifier: String
     var location: String
     var unlocked: Bool
     var collapsedImageName: String
@@ -36,14 +37,3 @@ enum Rarity: String, Codable {
         }
     }
 }
-//    private var coordinates: Coordinates
-//    var locationCoordinate: CLLocationCoordinate2D {
-//        CLLocationCoordinate2D(
-//            latitude: coordinates.latitude,
-//            longitude: coordinates.longitude)
-//    }
-//
-//    struct Coordinates: Hashable, Codable {
-//        var latitude: Double
-//        var longitude: Double
-//    }

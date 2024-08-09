@@ -23,7 +23,7 @@ struct MapView: View {
                     ForEach(landmarks) { landmark in
                         MapCircle(center: CLLocationCoordinate2D(latitude: landmark.latitude, longitude: landmark.longitude), radius: CLLocationDistance(integerLiteral: 50))
                             .stroke(Color.blue, lineWidth: 2)
-                            .tag(landmark.name)
+                            .tag(landmark.identifier)
                     }
                     UserAnnotation()
                 }
@@ -33,7 +33,6 @@ struct MapView: View {
                 .onAppear {
                     print("Map view appeared")
                     updateMapRegion()
-                    locationDataManager.startMonitoringRegions(for: landmarks)
                 }
                 .alert(isPresented: $locationDataManager.showingAlert) {
                     Alert(

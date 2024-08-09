@@ -15,7 +15,7 @@ struct MainView: View {
     @EnvironmentObject var viewModel: AuthViewModel
     
     var body: some View {
-        if viewModel.userSession != nil {
+        if $viewModel.userSession != nil {
             TabView(selection: $selectedIndex) {
                 NavigationStack {
                     TradingCardsView(isLandmarkNearby: $isLandmarkNearby, landmark: landmarks[0])
@@ -46,7 +46,7 @@ struct MainView: View {
             }
             .environmentObject(locationDataManager)
             .sheet(isPresented: $showCameraView) {
-                CameraView()
+                CameraView(locationDataManager: LocationDataManager())
             }
         } else {
             LoginView()

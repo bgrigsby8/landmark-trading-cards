@@ -55,7 +55,7 @@ struct TradingCardsView: View {
                         }
                         Spacer()
                         if locationDataManager.isInGeographicalZone {
-                            NavigationLink(destination: CameraView()) {
+                            NavigationLink(destination: CameraView(locationDataManager: LocationDataManager())) {
                                 Image(systemName: "camera.fill")
                                     .resizable()
                                     .foregroundColor(.blue)
@@ -107,7 +107,7 @@ struct TradingCardsView: View {
             }
         }
         .sheet(isPresented: $showCameraView) {
-            CameraView()
+            CameraView(locationDataManager: LocationDataManager())
         }
     }
 }

@@ -2,6 +2,7 @@
     {
         "id": 1,
         "name": "Empire State Building",
+        "identifier": "empire_state_building_new_york",
         "location": "New York",
         "unlocked": false,
         "collapsedImageName": "empire_state_building_collapsed",
@@ -14,6 +15,7 @@
     {
         "id": 2,
         "name": "One World Trade Center",
+        "identifier": "one_world_trade_center_new_york",
         "location": "New York",
         "unlocked": false,
         "collapsedImageName": "one_world_trade_center",
@@ -26,6 +28,7 @@
     {
         "id": 3,
         "name": "Radio City Music Hall",
+        "identifier": "radio_city_music_hall_new_york",
         "location": "New York",
         "unlocked": false,
         "collapsedImageName": "radio_city_music_hall",
@@ -38,6 +41,7 @@
     {
         "id": 4,
         "name": "Statue of Liberty",
+        "identifier": "statue_of_liberty_new_york",
         "location": "New York",
         "unlocked": false,
         "collapsedImageName": "statue_of_liberty",
@@ -50,6 +54,7 @@
     {
         "id": 5,
         "name": "Guggenheim Museum",
+        "identifier": "guggenheim_museum_new_york",
         "location": "New York",
         "unlocked": false,
         "collapsedImageName": "guggenheim_museum",
@@ -62,6 +67,7 @@
     {
         "id": 6,
         "name": "Manhattan Bridge (Dumbo)",
+        "identifier": "manhattan_bridge_dumbo_new_york",
         "location": "New York",
         "unlocked": false,
         "collapsedImageName": "manhattan_bridge_dumbo",
@@ -74,6 +80,7 @@
     {
         "id": 7,
         "name": "Pookie's Apartment",
+        "identifier": "pookies_apartment_new_york",
         "location": "New York",
         "unlocked": false,
         "collapsedImageName": "manhattan_bridge_dumbo",
@@ -86,6 +93,33 @@
     {
         "id": 8,
         "name": "JABing Studios",
+        "identifier": "jabing_studios_new_york",
+        "location": "New York",
+        "unlocked": false,
+        "collapsedImageName": "manhattan_bridge_dumbo",
+        "expandedImageName": "empire_state_building_expanded",
+        "description": "This is the description",
+        "rarity": "rare",
+        "latitude": 40.713234741477656,
+        "longitude": -83.96139925601902
+    },
+    {
+        "id": 9,
+        "name": "Tokyo Skytree",
+        "identifier": "tokyo_skytree_tokyo",
+        "location": "Tokyo",
+        "unlocked": false,
+        "collapsedImageName": "manhattan_bridge_dumbo",
+        "expandedImageName": "empire_state_building_expanded",
+        "description": "This is the description",
+        "rarity": "rare",
+        "latitude": 35.71003031323524,
+        "longitude": 139.8107099776278
+    },
+    {
+        "id": 10,
+        "name": "Domino Sugar",
+        "identifier": "domino_sugar_new_york_city",
         "location": "New York",
         "unlocked": false,
         "collapsedImageName": "manhattan_bridge_dumbo",
@@ -95,16 +129,4 @@
         "latitude": 40.713234741477656,
         "longitude": -73.96139925601902
     },
-    {
-        "id": 9,
-        "name": "Tokyo Skytree",
-        "location": "Tokyo",
-        "unlocked": false,
-        "collapsedImageName": "manhattan_bridge_dumbo",
-        "expandedImageName": "empire_state_building_expanded",
-        "description": "This is the description",
-        "rarity": "rare",
-        "latitude": 35.71003031323524,
-        "longitude": 139.8107099776278
-    }
 ]
