@@ -30,7 +30,7 @@ packaging==24.1
 pillow==10.4.0
 protobuf==4.25.8
 pyaml==24.7.0
-pyasn1==0.6.0
+pyasn1==0.6.3
 pyasn1_modules==0.4.0
 PyYAML==6.0.1
 requests==2.32.4
